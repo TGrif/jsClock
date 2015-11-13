@@ -1,30 +1,45 @@
 
-var audioCtx = window.AudioContext(); //console.log(audioCtx);
 
 
+    var
+
+            jsClock = function() {
+                this.audioCtx = window.AudioContext();
+                this.clock = document.getElementById('studio_clock');
+            };
 
 
-
-//var
-//
-//    jsClock =
-            
-    (function displayTime() {
-        var currentTime = audioCtx.currentTime.toFixed(3);
-//        var time = currentTime.split('.', currentTime);
-//        var minutes = ~~(currentTime / 60);
-//        console.log(typeof(currentTime));
-//        document.querySelector('p').textContent = time[0] + ':' + time [1];
-        document.querySelector('p').textContent = currentTime;
+            jsClock.prototype = {
+                displayTime: function() {
+                    this.time = this.audioCtx.currentTime.toFixed(3);
+    //                console.log(this.time);
+    //                var that = this;
+                    this.clock.textContent = this.time;
+    //                requestAnimationFrame(function() { that.displayTime(); });
+                    requestAnimationFrame(
+                            jsClock.prototype.displayTime.bind(this)
+                        );
+                }
+            };
         
-        requestAnimationFrame(displayTime);
-    })(audioCtx);
 
-//var d = new Date();
-//	d.setSeconds(62);
-//	 
-//	alert(d);
-//        
+
+            
+            
+//    (function displayTime() {
+//        var currentTime = audioCtx.currentTime.toFixed(3);
+//        document.querySelector('p').textContent = currentTime;        
+//        requestAnimationFrame(displayTime);
+//    })(audioCtx);
+
+
+
+
+//        var minutes = ~~(currentTime / 60);
         
         
 //        console.log(jsClock);
+
+        
+        studioClock = new jsClock();
+        studioClock.displayTime();
