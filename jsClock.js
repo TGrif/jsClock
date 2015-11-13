@@ -13,7 +13,6 @@
                 displayTime: function() {
                     this.time = this.audioCtx.currentTime.toFixed(3);
     //                console.log(this.time);
-    //                var that = this;
                     this.clock.textContent = this.time;
     //                requestAnimationFrame(function() { that.displayTime(); });
                     requestAnimationFrame(
