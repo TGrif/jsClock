@@ -1,7 +1,14 @@
-
+/**
+ *  jsClock
+ * web audio API studio clock
+ *  
+ *  TGrif 2015 - MIT Licence
+ */
 
 
     var
+
+
 
             jsClock = function() {
                 this.audioCtx = window.AudioContext();
@@ -9,16 +16,35 @@
             };
 
 
+
+
+
             jsClock.prototype = {
-                displayTime: function() {
-                    this.time = this.audioCtx.currentTime.toFixed(3);
-    //                console.log(this.time);
-                    this.clock.textContent = this.time;
-    //                requestAnimationFrame(function() { that.displayTime(); });
-                    requestAnimationFrame(
+                
+                
+                _getTime: function() {
+                    return this.audioCtx.currentTime.toFixed(3);
+                },
+                
+                
+                
+                displayTime: function() {                    
+
+                    this.clock.textContent = this._getTime();
+
+                    this.frame = requestAnimationFrame(
                             jsClock.prototype.displayTime.bind(this)
                         );
+          
+                },
+                
+                
+                resetClock: function() {
+                    cancelAnimationFrame(this.frame);
+                    this.clock.textContent = "0.000";
                 }
+                
+
             };
         
 
@@ -39,6 +65,15 @@
         
 //        console.log(jsClock);
 
+
         
         studioClock = new jsClock();
-        studioClock.displayTime();
+        
+        
+        document.getElementById('start').onclick = function() {
+            studioClock.displayTime();
+        };
+        
+        document.getElementById('stop').onclick = function() {
+            studioClock.resetClock();
+        };
