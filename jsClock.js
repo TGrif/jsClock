@@ -12,9 +12,13 @@
 
                 jsClock = function() {
 
+                    this.clock = document.getElementById('studio_clock');
+                    
+                    
                     this.audioCtx = window.AudioContext() || window.webkitAudioContext();
                     
-                    this.clock = document.getElementById('studio_clock');
+                    document.getElementById('sampleRate').innerHTML = this.audioCtx.sampleRate + " Hz";
+
 
                     this._initClock();
 
@@ -48,18 +52,6 @@
                 
                 
                 
-                _stopAnimation: function() {
-                    
-                    try {
-                        cancelAnimationFrame(this.frame);
-                    } catch (e) { //clearTimeout fallback
-                        clearTimeout(this.frame);
-                    }
-                    
-                },
-                
-                
-                
                 _startAnimation: function() {
                     
                         try {
@@ -72,6 +64,18 @@
                                 , 1000 / 60);
                         }
 
+                },
+                
+                
+                
+                _stopAnimation: function() {
+                    
+                    try {
+                        cancelAnimationFrame(this.frame);
+                    } catch (e) { //clearTimeout fallback
+                        clearTimeout(this.frame);
+                    }
+                    
                 },
                 
                 
@@ -150,6 +154,12 @@
                 
                 clockIsRunning: function() {
                     return this.isRunning;
+                },
+                
+                
+                
+                clockTime: function() {
+                    return this._formatTime(this.time);
                 }
                 
 
@@ -176,6 +186,7 @@
             document.getElementById('stop').onclick = function() {
                 studioClock.stopClock();
             };
+
 
 
 
