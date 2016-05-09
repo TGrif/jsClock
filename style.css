@@ -13,16 +13,20 @@ body {
     text-align: center;
     /*cursor: none;*/
 }
-
+#panel {
+    height: 40px;
+    width: 100%;
+    min-width: 780px;
+    text-align: center;
+}
 #mesure {
-    float: right;
-    margin-right: 25%;
+    display: inline;
     font-size: 2em;
     cursor: pointer;
 }
 
 #studio_clock_bpm {
-    float: right;
+    display: inline;
     margin-right: 5%;
     font-size: 2em;
     cursor: pointer;
@@ -47,25 +51,30 @@ button {
 
 #metronome {
     width: 25px;
-    float: right;
+    display: inline;
     margin-right: 42px;
     margin-top: 2px;
     cursor: pointer;
 }
 
 #sampleRate {
-    float: right;
+    display: inline;
     margin-right: 5%;
     font-size: 2em;
 }
 
 #type {
+    display: inline;
     cursor: pointer;
     font-size: 1.4em;
-    float: right;
     margin-right: 5%;
     color: black;
     background-color: greenyellow;
     padding: 5px;
     font-weight: bold;
+}
+
+#command {
+    padding-top: 11em;
+    text-align: center;
 }

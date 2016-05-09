@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html>
-    
+
   <head>
-      
-    <meta charset="utf-8">
-    
-        <title>jsClock</title>
-    
-            <link rel="stylesheet" type="text/css" href="style.css" />
-    
+
+	<meta charset="utf-8">
+
+		<title>jsClock</title>
+
+			<link rel="stylesheet" type="text/css" href="style.css" />
+
+		  <script src="jsClock.js"></script>
+		  <script src="jsClockDemo.js"></script>
+
   </head>
-  
+
   <body>
-        
-        <button id="start">start</button>
-        <button id="pause">pause</button>
-        <button id="stop">clear</button>
-        
-        
-            <div id="studio_clock"></div>
-            
-              <div id="mesure"></div>
-              <img id="metronome" src="metronome.png" alt="" />
-              <div id="studio_clock_bpm">
-                  <span id="bpm"></span>BPM
-              </div>
-              <div id="sampleRate"></div>
-              <div id="type">master</div> <!-- internal -->
-              
-              
-        <script src="jsClock.js"></script>
-        
+
+
+			<div id="studio_clock"></div>
+
+				<div id="panel">	
+				  <div id="type">master</div>
+				  <div id="sampleRate"></div>
+				  <div id="studio_clock_bpm">
+					  <span id="bpm"></span>BPM
+				  </div>
+				  <img id="metronome" src="metronome.png" alt="" />
+				  <div id="mesure"></div>
+				</div>
+
+
+
+	  	<div id="command">
+			<button id="start">start</button>
+			<button id="pause">pause</button>
+			<button id="stop">clear</button>
+		</div>
+
+
   </body>
-  
+
 </html>
