@@ -7,9 +7,9 @@
 
 					
 
-	jsClock = function (audioCtx, element) {
+	jsClock = function(audioCtx, element) {
 
-		this.version = '0.0.2';
+		this.version = '0.0.3';
 
 		this.clock = document.getElementById(element);
 
@@ -69,12 +69,13 @@
 
 			_startAnimation: function() {
 
+				var displayTime = jsClock.prototype._displayTime.bind(this)
 				try {
-					this.frame = requestAnimationFrame(jsClock.prototype._displayTime.bind(this));
+					this.frame = requestAnimationFrame(displayTime);
 				} catch (e) {
 					console.warn(e);
 					console.info('requestAnimationFrame not supported, fallback to setTimeout');
-					this.frame = window.setTimeout(jsClock.prototype._displayTime.bind(this), 1000 / 60);
+					this.frame = window.setTimeout(displayTime, 1000 / 60);
 				}
 
 			},
@@ -114,12 +115,12 @@
 
 			_displayTime: function() {
 
+				// TODO make it a little slower
 				this.time = this._getTime() - this.timeElapse + this.timePause;
 				this.clock.textContent = this._formatTime(this.time);
 				this._startAnimation();
 
 			},
-
 
 
 			/**
@@ -171,7 +172,7 @@
 
 
 			clockTime: function() {
-				return this._formatTime (this.time);
+				return this._formatTime(this.time);
 			},
 
 
@@ -183,9 +184,9 @@
 
 			setMesure: function (mesure) {
 
-				var possibleMesure = [ '4/4', '3/4', '5/4' ];
+				var possibleMesure = [ '4/4', '3/4', '5/4', '6/4' ];
 
-				if (possibleMesure.indexOf(mesure) !== -1) {
+				if (~possibleMesure.indexOf(mesure)) {
 					this.mesure = mesure || this.mesure;
 				}
 

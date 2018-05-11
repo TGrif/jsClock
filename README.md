@@ -6,14 +6,14 @@ demo: http://direct-shoot.com/jsClock
 
 
 
-Usage
+##Usage
 
 var clock = new jsClock(audioContext, element);
 
 
 
 
-API
+##API
 
 	startClock()
 
@@ -35,7 +35,10 @@ API
 
 
 
-Change Log
+##Change Log
+
+v0.0.3
+Improve UI
 
 
 v0.0.2

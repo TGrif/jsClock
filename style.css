@@ -11,8 +11,9 @@ body {
 #studio_clock {
     font-size: 8em;
     text-align: center;
-    /*cursor: none;*/
+    letter-spacing: 4px;
 }
+
 #panel {
     height: 40px;
     width: 100%;
@@ -29,7 +30,6 @@ body {
     display: inline;
     margin-right: 5%;
     font-size: 2em;
-    cursor: pointer;
 }
 
 #bpm {
@@ -52,8 +52,7 @@ button {
 #metronome {
     width: 25px;
     display: inline;
-    margin-right: 42px;
-    margin-top: 2px;
+    margin-right: 8px;
     cursor: pointer;
 }
 
@@ -65,7 +64,6 @@ button {
 
 #type {
     display: inline;
-    cursor: pointer;
     font-size: 1.4em;
     margin-right: 5%;
     color: black;
@@ -77,4 +75,13 @@ button {
 #command {
     padding-top: 11em;
     text-align: center;
+}
+
+.btn_ctrl {
+  width: 60px;
+  color: white;
+  background-color: #006254;
+  border: 0px solid;
+  margin: 8px;
+  cursor: pointer;
 }
