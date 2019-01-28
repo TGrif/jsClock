@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+  <meta charset="utf-8">
+
+    <title>jsClock</title>
+
+      <link rel="stylesheet" type="text/css" href="style.css" />
+
+      <script src="../jsClock.js"></script>
+      <script src="jsClockDemo.js"></script>
+
+  </head>
+
+  <body>
+
+    <div id="studio_clock"></div>
+
+    <div id="panel">	
+      <div id="type" title="Horloge principale">master</div>
+      <div id="sampleRate" title="Fréquence"></div>
+      <div id="studio_clock_bpm" title="Battements / minutes">
+        <span id="bpm"></span>BPM
+      </div>
+      <img id="metronome" src="metronome.png" alt="" title="Mesure" />
+      <div id="mesure"></div>
+    </div>
+
+
+
+    <div id="command">
+      <button id="clear" class="btn_ctrl">clear</button>
+      <button id="start" class="btn_ctrl">start</button>
+    </div>
+
+  </body>
+
+</html>
