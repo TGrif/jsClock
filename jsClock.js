@@ -6,7 +6,7 @@
  */
 
 
-jsClock = function (audioCtx, element, option) {
+var jsClock = function(audioCtx, element, option) {
 
   this.clock = document.getElementById(element);
 
@@ -35,7 +35,6 @@ jsClock = function (audioCtx, element, option) {
 }
 
 
-
 jsClock.prototype = {
 
   _addZeroHelper: function (num) {
@@ -51,7 +50,7 @@ jsClock.prototype = {
     if (!this.audioCtx) {
       return console.error("Web Audio API error!");
     }
-    
+
     this.setTempo();
     this.setMesure();
 
@@ -60,10 +59,10 @@ jsClock.prototype = {
   _startAnimation: function() {
 
     var displayTime = jsClock.prototype._displayTime.bind(this);
-    
+
     try {
       this.frame = requestAnimationFrame(displayTime);
-    } catch (e) {
+    } catch(e) {
       console.warn(e);
       console.info('requestAnimationFrame not supported, fallback to setTimeout');
       this.frame = window.setTimeout(displayTime, 1000 / 60);
@@ -88,14 +87,12 @@ jsClock.prototype = {
   },
 
   _formatTime: function (time) {
-    
     var milli = (time % 1).toFixed(2).split('.')[1];
     var seconds	= this._addZeroHelper( ~~ (time % 60));
     var minutes	= this._addZeroHelper( ~~ ((time / 60) % 60));
     var hours = this._addZeroHelper( ~~ ((time / (60 * 60)) % 60));
-    
+
     return hours + ':' + minutes + ':' + seconds + ':' + milli;
-    
   },
 
   _displayTime: function() {
@@ -135,11 +132,11 @@ jsClock.prototype = {
   getSampleRate: function() {
     return this.audioCtx.sampleRate + " Hz";
   },
-  
+
   getTempo: function() {
     return this.tempo;
   },
-  
+
   setTempo: function (tempo) {
     this.tempo = tempo || this.tempo;
     return this.tempo;
@@ -148,7 +145,7 @@ jsClock.prototype = {
   getMesure: function() {
     return this.mesure;
   },
-  
+
   setMesure: function (mesure) {
     if (~this.possibleMesure.indexOf(mesure)) {
       this.mesure = mesure || this.mesure;
@@ -159,7 +156,7 @@ jsClock.prototype = {
   getMetronome: function() {
     return this.metronome.isRunning;
   },
-  
+
   setMetronome: function() {
 
     if (!this.metronome.isRunning) {

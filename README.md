@@ -1,18 +1,14 @@
-# jsClock
-Web Audio Studio clock
+## jsClock
+###### Web Audio Studio clock
 
+### demo
+http://direct-shoot.com/jsClock
 
-demo: http://direct-shoot.com/jsClock
+#### Usage
 
+`var clock = new jsClock(audioContext, element, option);`
 
-
-##Usage
-
-var clock = new jsClock(audioContext, element, option);
-
-
-
-##Method
+#### Method
 
 	startClock()
 
