@@ -2,7 +2,7 @@
 ###### Web Audio Studio clock
 
 ### demo
-http://direct-shoot.com/jsClock
+Look at demo/ directory
 
 #### Usage
 
